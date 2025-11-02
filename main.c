@@ -3,7 +3,15 @@
 #include <string.h>
 
 int main(int argc, char **argv) {
-	FILE *file = fopen(argv[1], "r");
+	if(argc != 2) {
+		printf("invalid args\n");
+		return 1;
+	}
+	FILE *file = NULL;
+	if(!(file = fopen(argv[1], "r"))) {
+		printf("invalid file\n");
+		return 1;
+	}
 	char *new_name = malloc(strlen(argv[1]) + 5);
 	new_name = strcpy(new_name, argv[1]);
 	new_name = strcat(new_name, ".tmp");
