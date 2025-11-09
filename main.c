@@ -40,7 +40,7 @@ int main(int argc, char **argv) {
 			continue;
 		}
 		ungetc('\n', file);
-		fprintf(temp, "printf(\"%%d\", __LINE__);perror(NULL);");
+		fprintf(temp, "          printf(\"%%d\", __LINE__);perror(NULL);");
 	}
 	remove(argv[1]);
 	rename(new_name, argv[1]);
